@@ -19,11 +19,11 @@ class Series {
 
       // head displays Series with first num_rows rows
       void head();
-      void head(int: num_rows);
+      void head(int num_rows);
 
       // tail displays Series with last num_rows rows
       void tail();
-      void tail(int: num_rows);
+      void tail(int num_rows);
 
       // Getter
       std::vector<Dtype> values();
