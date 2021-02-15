@@ -13,9 +13,9 @@ class Series {
       std::string name_;
     
     public:
-      Series(const std::vector<Dtype>& data);
-      Series(const std::vector<Dtype>& data, std::string name);
       Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name);
+      Series(const std::vector<Dtype>& data, std::string name);
+      Series(const std::vector<Dtype>& data);
 
       // head displays Series with first num_rows rows
       void head();
