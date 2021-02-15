@@ -5,7 +5,7 @@
 
 
 template <typename Dtype>
-Series::Series(const std::vector<Dtype>& data) {
+Series<Dtype>::Series(const std::vector<Dtype>& data) {
     data_ = data;
 
     // If no index argument is provided, use default index setting as shown below
@@ -18,7 +18,7 @@ Series::Series(const std::vector<Dtype>& data) {
 }
 
 template <typename Dtype>
-Series::Series(const std::vector<Dtype>& data, std::string name) {
+Series<Dtype>::Series(const std::vector<Dtype>& data, std::string name) {
     data_ = data;
 
     // If no index argument is provided, use default index setting as shown below
@@ -31,7 +31,7 @@ Series::Series(const std::vector<Dtype>& data, std::string name) {
 
 
 template <typename Dtype>
-Series::Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name) {
+Series<Dtype>::Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name) {
     data_ = data;
     index_ = index;
     name_ = name;
