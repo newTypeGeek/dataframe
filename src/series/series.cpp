@@ -33,5 +33,17 @@ Series<Dtype>::Series(const std::vector<Dtype>& data) {
     this->set_default_index(data);
 }
 
+template <typename Dtype>
+std::vector<Dtype> Series<Dtype>::values() {
+    return this->data_;
+}
 
+template <typename Dtype>
+std::vector<Dtype> Series<Dtype>::index() {
+    return this->index_;
+}
 
+template <typename Dtype>
+std::string Series<Dtype>::name() {
+    return this->name_;
+}
