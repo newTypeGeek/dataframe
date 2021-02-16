@@ -11,7 +11,7 @@ class Series {
       std::vector<Dtype> index_;
       std::string name_;
 
-      void set_default_index(std::vector<Dtype>& data);
+      void set_default_index(const std::vector<Dtype>& data);
     
     public:
       Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name);
