@@ -7,10 +7,11 @@
 template <class Dtype>
 class Series {
     private:
-      // TODO: create template class for data and index to accept dynamic type
       std::vector<Dtype> data_;
       std::vector<Dtype> index_;
       std::string name_;
+
+      void set_default_index(std::vector<Dtype>& data);
     
     public:
       Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name);

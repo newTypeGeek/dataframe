@@ -3,6 +3,15 @@
 #include <cstdio>
 #include "series.hpp"
 
+
+template <typename Dtype>
+void Series<Dtype>::set_default_index(std::vector<Dtype>& data) {
+    for (int i = 0; i < data.size(); ++i) {
+        this->index_.push_back(i);
+    }
+}
+
+
 template <typename Dtype>
 Series<Dtype>::Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name) {
     data_ = data;
