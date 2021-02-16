@@ -47,3 +47,17 @@ template <typename Dtype>
 std::string Series<Dtype>::name() {
     return this->name_;
 }
+
+template <typename Dtype>
+Series<Dtype> Series<Dtype>::iloc(u_long begin, u_long end) {
+
+    std::vector<Dtype>::iterator data_iter_begin = this->data_.begin();
+    std::vector<Dtype>::iterator index_iter_begin = this->index_.begin();
+
+    // Slice the data and index (end is excluded)
+    std::vector<Dtype> data_sliced = std::vector<Dtype>(data_iter_begin + begin, data_iter_begin + end);
+    std::vector<Dtype> index_sliced = std::vector<Dtype>(index_iter_begin + begin, index_iter_begin + end);
+
+    return Series(data_sliced, index_sliced, this->name_);
+
+}
