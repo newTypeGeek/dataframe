@@ -4,24 +4,24 @@
 #include <vector>
 #include <iostream>
 
-template <class Dtype>
+template <typename DataType>
 class Series {
     private:
-      std::vector<Dtype> data_;
-      std::vector<Dtype> index_;
+      std::vector<DataType> data_;
+      std::vector<DataType> index_;
       std::string name_;
 
       // set index_ to [0, 1, 2, ..., data.size()]
-      void set_default_index(const std::vector<Dtype>& data);
+      void set_default_index(const std::vector<DataType>& data);
     
     public:
-      Series(const std::vector<Dtype>& data, const std::vector<Dtype>& index, std::string name);
-      Series(const std::vector<Dtype>& data, std::string name);
-      Series(const std::vector<Dtype>& data);
+      Series(const std::vector<DataType>& data, const std::vector<DataType>& index, std::string name);
+      Series(const std::vector<DataType>& data, std::string name);
+      Series(const std::vector<DataType>& data);
 
       // Getter
-      std::vector<Dtype> values();
-      std::vector<Dtype> index();
+      std::vector<DataType> values();
+      std::vector<DataType> index();
       std::string name();
 
       // Slicer (mimic .iloc in pandas)
