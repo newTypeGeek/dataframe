@@ -21,7 +21,7 @@ Series<DataType, IndexType>::Series(const std::vector<DataType>& data, const std
     int data_size = this->data_.size();
     int index_size = index.size();
 
-    if (index.size() == 0) { // TODO: use optional instead
+    if (index_size == 0) { // TODO: use optional instead
         this->index_ = this->get_default_index_from_data_size();
     } else if (data_size != index_size) {
         throw "data and index size mismatch";
