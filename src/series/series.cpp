@@ -5,32 +5,30 @@
 
 
 template <typename DataType, typename IndexType>
-void Series<DataType, IndexType>::set_default_index(const std::vector<IndexType>& data) {
-    for (int i = 0; i < data.size(); ++i) {
-        this->index_.push_back(i);
+std::vector<IndexType> Series<DataType, IndexType>::get_default_index_from_data_size() {
+    std::vector<int> index;
+    for (int i = 0; i < this->data_.size(); ++i) {
+        index.push_back(i);
     }
+    return index;
 }
 
 
 template <typename DataType, typename IndexType>
 Series<DataType, IndexType>::Series(const std::vector<DataType>& data, const std::vector<IndexType>& index, std::string name) {
     this->data_ = data;
-    this->index_ = index;
-    this->name_ = name;
-}
 
-template <typename DataType, typename IndexType>
-Series<DataType, IndexType>::Series(const std::vector<DataType>& data, std::string name) {
-    this->data_ = data;
-    this->name_ = name;
-    this->set_default_index(data);
-}
+    int data_size = this->data_.size();
+    int index_size = index.size();
 
-template <typename DataType, typename IndexType>
-Series<DataType, IndexType>::Series(const std::vector<DataType>& data) {
-    this->data_ = data;
-    this->name_ = "";
-    this->set_default_index(data);
+    if (index.size() == 0) { // TODO: use optional instead
+        this->index_ = this->get_default_index_from_data_size();
+    } else if (data_size != index_size) {
+        throw "data and index size mismatch";
+    } else {
+        this->index_ = index;
+    }
+    this->name_ = name;
 }
 
 template <typename DataType, typename IndexType>

@@ -11,13 +11,11 @@ class Series {
       std::vector<IndexType> index_;
       std::string name_;
 
-      // set index_ to [0, 1, 2, ..., data.size()]
-      void set_default_index(const std::vector<IndexType>& data);
+      // Generate index [0, 1, 2, ... n] according to data_.size()
+      std::vector<IndexType> get_default_index_from_data_size();
     
     public:
-      Series(const std::vector<DataType>& data, const std::vector<IndexType>& index, std::string name);
-      Series(const std::vector<DataType>& data, std::string name);
-      Series(const std::vector<DataType>& data);
+      Series(const std::vector<DataType>& data = {}, const std::vector<IndexType>& index = {}, std::string name = "");
 
       // Getter
       std::vector<DataType> values();
