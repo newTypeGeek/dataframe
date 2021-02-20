@@ -2,7 +2,6 @@
 #define DATAFRAME_SERIES_HPP_
 #include <string>
 #include <vector>
-#include <iostream>
 
 template <typename DataType, typename IndexType = int>
 class Series {

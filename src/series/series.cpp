@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <cstdio>
 #include "series.hpp"
 
 
