@@ -28,4 +28,9 @@ class Series {
       
 
 };
-#endif
+
+// For template, we need to include definition in header
+#include "series.cpp"
+
+
+#endif 
