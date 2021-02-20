@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <cassert>
 #include "series.hpp"
 
 
@@ -22,8 +23,8 @@ Series<DataType, IndexType>::Series(const std::vector<DataType>& data, const std
 
     if (index_size == 0) { // TODO: use optional instead
         this->index_ = this->get_default_index_from_data_size();
-    } else if (data_size != index_size) {
-        
+    } else if (index_size != data_size) {
+        assert(index_size == data_size);
     } else {
         this->index_ = index;
     }
