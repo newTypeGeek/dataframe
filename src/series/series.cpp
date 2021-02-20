@@ -5,7 +5,7 @@
 
 template <typename DataType, typename IndexType>
 std::vector<IndexType> Series<DataType, IndexType>::get_default_index_from_data_size() {
-    std::vector<int> index;
+    std::vector<IndexType> index;
     for (int i = 0; i < this->data_.size(); ++i) {
         index.push_back(i);
     }
@@ -23,7 +23,7 @@ Series<DataType, IndexType>::Series(const std::vector<DataType>& data, const std
     if (index_size == 0) { // TODO: use optional instead
         this->index_ = this->get_default_index_from_data_size();
     } else if (data_size != index_size) {
-        throw "data and index size mismatch";
+        
     } else {
         this->index_ = index;
     }
