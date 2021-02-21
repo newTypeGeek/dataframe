@@ -47,15 +47,17 @@ std::string Series<DataType, IndexType>::name() {
 }
 
 template <typename DataType, typename IndexType>
-Series<DataType, IndexType> Series<DataType, IndexType>::iloc(u_long begin, u_long end) {
+Series<DataType, IndexType> Series<DataType, IndexType>::iloc(unsigned long long int begin, unsigned long long int end) {
 
     typename std::vector<DataType>::iterator data_iter_begin = this->data_.begin();
-    typename std::vector<DataType>::iterator index_iter_begin = this->index_.begin();
+    typename std::vector<IndexType>::iterator index_iter_begin = this->index_.begin();
 
     // Slice the data and index (end is excluded)
     std::vector<DataType> data_sliced = std::vector<DataType>(data_iter_begin + begin, data_iter_begin + end);
-    std::vector<DataType> index_sliced = std::vector<DataType>(index_iter_begin + begin, index_iter_begin + end);
+    std::vector<IndexType> index_sliced = std::vector<IndexType>(index_iter_begin + begin, index_iter_begin + end);
+    
+     Series series_sliced(data_sliced, index_sliced, this->name_);
 
-    return Series(data_sliced, index_sliced, this->name_);
+     return series_sliced;
 
 }

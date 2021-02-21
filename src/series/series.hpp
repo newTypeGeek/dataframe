@@ -19,7 +19,7 @@ class Series {
       std::string name();
 
       // Slicer (mimic .iloc in pandas)
-      Series iloc(u_long begin, u_long end);
+      Series iloc(unsigned long long int begin, unsigned long long int end);
     
     protected:
       // Generate index [0, 1, 2, ... n] according to data_.size()
