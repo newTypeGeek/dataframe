@@ -9,6 +9,9 @@ class Series {
       std::vector<DataType> data_;
       std::vector<IndexType> index_;
       std::string name_;
+
+      // Generate index [0, 1, 2, ... n] according to data_.size()
+      std::vector<IndexType> get_default_index_from_data_size();
     
     public:
       Series(const std::vector<DataType>& data = {}, const std::vector<IndexType>& index = {}, std::string name = "");
@@ -20,11 +23,6 @@ class Series {
 
       // Slicer (mimic .iloc in pandas)
       Series iloc(unsigned long long int begin, unsigned long long int end);
-    
-    protected:
-      // Generate index [0, 1, 2, ... n] according to data_.size()
-      std::vector<IndexType> get_default_index_from_data_size();
-      
 
 };
 
