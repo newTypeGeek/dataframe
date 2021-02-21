@@ -1,19 +1,36 @@
-#ifndef SERIES_HPP
-#define SERIES_HPP
+#ifndef DATAFRAME_SERIES_HPP_
+#define DATAFRAME_SERIES_HPP_
 #include <string>
 #include <vector>
 
+template <typename DataType, typename IndexType = int>
 class Series {
     private:
-      // TODO: create template class for data and index to accept dynamic type
-      std::vector<double> data_;
-      std::vector<std::string> index_;
+      std::vector<DataType> data_;
+      std::vector<IndexType> index_;
       std::string name_;
+      unsigned long long int size_;
+
+      // Generate index [0, 1, 2, ... n] according to data_.size()
+      std::vector<IndexType> get_default_index_from_data_size();
     
     public:
-      Series(std::vector<double> data, std::vector<std::string> index, std::string name);
+      Series(const std::vector<DataType>& data = {}, const std::vector<IndexType>& index = {}, std::string name = "");
 
-      // temporary method for testing
-      double sum();
+      // Getter
+      std::vector<DataType> values();
+      std::vector<IndexType> index();
+      std::string name();
+      unsigned long long int size();
+
+      // Slicer (mimic .iloc in pandas)
+      Series iloc(long long int begin, long long int end);
+      DataType iloc(long long int position);
+
 };
-#endif
+
+// For template, we need to include definition in header
+#include "series.cpp"
+
+
+#endif 
