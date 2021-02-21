@@ -47,7 +47,23 @@ std::string Series<DataType, IndexType>::name() {
 }
 
 template <typename DataType, typename IndexType>
-Series<DataType, IndexType> Series<DataType, IndexType>::iloc(unsigned long long int begin, unsigned long long int end) {
+Series<DataType, IndexType> Series<DataType, IndexType>::iloc(long long int begin, long long int end) {
+     
+     // Handle negative begin and end input
+     // In pandas, .iloc[-3:-1] = slice from the last third index to the last index (excluded)
+    int index_size = this->index_.size();
+
+     if (begin < 0) {
+         begin = index_size + begin;
+     }
+
+     if (end < 0) {
+         end = index_size + end;
+     }
+
+     std::cout << "begin = " << begin << std::endl;
+     std::cout << "end = " << end << std::endl;
+
 
     typename std::vector<DataType>::iterator data_iter_begin = this->data_.begin();
     typename std::vector<IndexType>::iterator index_iter_begin = this->index_.begin();

@@ -22,7 +22,7 @@ class Series {
       std::string name();
 
       // Slicer (mimic .iloc in pandas)
-      Series iloc(unsigned long long int begin, unsigned long long int end);
+      Series iloc(long long int begin, long long int end);
 
 };
 
