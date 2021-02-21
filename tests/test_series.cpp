@@ -25,7 +25,10 @@ int main() {
     std::cout << time_series.name() << std::endl;
 
     std::cout << "Size\n";
-    std::cout << time_series.size() << std::endl;  
+    std::cout << time_series.size() << std::endl;
+
+    std::cout << "\niloc[-1]\n";
+    std::cout << time_series.iloc(-1) << std::endl;
 
     // sub-series 
     std::cout <<"===== Sub Series =====\n";
@@ -42,7 +45,10 @@ int main() {
     std::cout << sub_series.name() << std::endl;
 
     std::cout << "Size\n";
-    std::cout << sub_series.size() << std::endl;  
+    std::cout << sub_series.size() << std::endl;
+
+    std::cout << "\niloc[-1]\n";
+    std::cout << sub_series.iloc(-1) << std::endl;
 
     return 0;
 }

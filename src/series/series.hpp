@@ -25,6 +25,7 @@ class Series {
 
       // Slicer (mimic .iloc in pandas)
       Series iloc(long long int begin, long long int end);
+      DataType iloc(long long int position);
 
 };
 

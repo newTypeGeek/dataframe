@@ -78,3 +78,14 @@ Series<DataType, IndexType> Series<DataType, IndexType>::iloc(long long int begi
      return series_sliced;
 
 }
+
+
+template <typename DataType, typename IndexType>
+DataType Series<DataType, IndexType>::iloc(long long int position) {
+    // Handle negative indexing
+     if (position < 0) {
+         position = this->size_ + position;
+     }
+
+    return this->data_.at(position);
+}
