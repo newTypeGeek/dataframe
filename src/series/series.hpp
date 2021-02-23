@@ -2,6 +2,7 @@
 #define DATAFRAME_SERIES_HPP_
 #include <string>
 #include <vector>
+#include <iterator>
 
 template <typename DataType, typename IndexType = int>
 class Series {
@@ -26,6 +27,22 @@ class Series {
       // Slicer (mimic .iloc in pandas)
       Series iloc(long long int begin, long long int end);
       DataType iloc(long long int position);
+
+      // Value iterator
+      typedef typename std::vector<DataType>::iterator value_iter;
+      typedef typename std::vector<DataType>::const_iterator const_value_iter;
+      value_iter begin() { 
+        return this->data_.begin(); 
+      }
+      value_iter end() {
+        return this->data_.end();
+      }
+      const_value_iter cbegin() { 
+        return this->data_.cbegin(); 
+      }
+      const_value_iter cend() {
+        return this->data_.cend();
+      }
 
 };
 
