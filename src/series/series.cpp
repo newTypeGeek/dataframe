@@ -91,9 +91,9 @@ DataType Series<DataType, IndexType>::iloc(long long int position) {
 }
 
 template <typename DataType, typename IndexType>
-bool Series<DataType, IndexType>::is_same_index(const Series& series_1, const Series& series_2) {
-    unsigned long long int size_1 = series_1.size();
-    unsigned long long int size_2 = series_2.size();
+bool Series<DataType, IndexType>::is_same_index(const Series& series) {
+    unsigned long long int size_1 = this->size_;
+    unsigned long long int size_2 = series.size();
     
     if (size_1 != size_2) {
         return false;

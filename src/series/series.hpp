@@ -16,7 +16,7 @@ class Series {
       std::vector<IndexType> get_default_index_from_data_size();
 
       // Check if two series have the same index
-      bool is_same_index(const Series& series_1, const Series& series_2);
+      bool is_same_index(const Series& series);
 
     public:
       Series(const std::vector<DataType>& data = {}, const std::vector<IndexType>& index = {}, std::string name = "");
@@ -45,6 +45,14 @@ class Series {
       }
       const_value_iter cend() {
         return this->data_.cend();
+      }
+      Series operator+(const Series& series) {
+        if (this->is_same_index(series)) {
+          const std::vector<DataType> data_ = this->data_ + series.values();
+          return Series(data_, this->index());
+        }
+        throw "Two series have different index";
+
       }
 
 };
