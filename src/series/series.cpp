@@ -89,3 +89,22 @@ DataType Series<DataType, IndexType>::iloc(long long int position) {
 
     return this->data_.at(position);
 }
+
+template <typename DataType, typename IndexType>
+bool Series<DataType, IndexType>::is_same_index(const Series& series_1, const Series& series_2) {
+    unsigned long long int size_1 = series_1.size();
+    unsigned long long int size_2 = series_2.size();
+    
+    if (size_1 != size_2) {
+        return false;
+    }
+
+    for (unsigned long long int i = 0; i < size_1; ++i) {
+        if (series_1.index().at(i) != series_2.index().at(i)) {
+            return false;
+        }
+    }
+
+    return true;
+
+}

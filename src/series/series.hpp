@@ -14,7 +14,10 @@ class Series {
 
       // Generate index [0, 1, 2, ... n] according to data_.size()
       std::vector<IndexType> get_default_index_from_data_size();
-    
+
+      // Check if two series have the same index
+      bool is_same_index(const Series& series_1, const Series& series_2);
+
     public:
       Series(const std::vector<DataType>& data = {}, const std::vector<IndexType>& index = {}, std::string name = "");
 
